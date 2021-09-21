@@ -1,0 +1,484 @@
+Box:
+----
+
+public class Box {
+    private int length;
+    private int width;
+    private int height;
+    public Box()
+    {
+        System.out.println("Inside Box Constructor");
+    }
+    public void initialize(int l, int w, int h)
+    {
+        length=l;
+        width=w;
+        height=h;
+    }
+    public void display()
+    {
+        System.out.println("Length="+length);
+        System.out.println("Width="+width);
+        System.out.println("Height="+height);
+    }
+    public int getVolume()
+    {
+        return length*width*height;
+    }
+}
+
+public class BoxDemo {
+    public static void main(String[] args) {
+        Box b1=new Box();
+        b1.initialize(10,5,8);
+        b1.display();
+        System.out.println("Volume of Box1 is:"+b1.getVolume());
+        Box b2=new Box();
+        b2.initialize(5,4,2);
+        b2.display();
+        System.out.println("Volume of Box2 is:"+b2.getVolume());
+        Box b3=new Box();
+        b3.initialize(5,10,4);
+        b3.display();
+        System.out.println("Volume of Box3 is:"+b3.getVolume());
+
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Laptop:
+-------
+
+public class Laptop {
+    private int ram;
+    private int hdd;
+    private String processor;
+    private double screen_size;
+    public void initialize(int r, int h, String p, double s)
+    {
+        ram=r;
+        hdd=h;
+        processor=p;
+        screen_size=s;
+    }
+    public void display()
+    {
+        System.out.println("Ram: "+ram+"GB");
+        System.out.println("HDD: "+hdd+"GB");
+        System.out.println("Processor: "+processor);
+        System.out.println("Screen Size: "+screen_size);
+    }
+
+}
+
+public class LaptopDemo {
+    public static void main(String[] args) {
+        Laptop hp=new Laptop();
+        hp.initialize(4,256,"Intel",15.2);
+        System.out.println("HP Laptop:");
+        hp.display();
+        Laptop dell=new Laptop();
+        dell.initialize(3,256,"AMD",14.5);
+        System.out.println("Dell Laptop:");
+        dell.display();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Car:
+----
+
+public class Car {
+    private String name;
+    private String fuel_type;
+    private int engine_capacity;
+    private float power;
+    private int no_gears;
+
+    public Car(String name, String fuel_type, int engine_capacity, float power, int no_gears) {
+        this.name = name;
+        this.fuel_type = fuel_type;
+        this.engine_capacity = engine_capacity;
+        this.power = power;
+        this.no_gears = no_gears;
+    }
+
+    public String getName() { return name;}
+
+    public String getFuel_type() {
+        return fuel_type;
+    }
+
+    public int getEngine_capacity() {
+        return engine_capacity;
+    }
+
+    public float getPower() {
+        return power;
+    }
+
+    public int getNo_gears() {
+        return no_gears;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFuel_type(String fuel_type) {
+        this.fuel_type = fuel_type;
+    }
+
+    public void setEngine_capacity(int engine_capacity) {
+        this.engine_capacity = engine_capacity;
+    }
+
+    public void setPower(float power) {
+        this.power = power;
+    }
+
+    public void setNo_gears(int no_gears) {
+        this.no_gears = no_gears;
+    }
+    public void acceleration()
+    {
+        System.out.println(name+" is accelerating");
+    }
+    public void applyBreak()
+    {
+        System.out.println(name+" is Slowing / Stopping");
+    }
+    public void changeGear()
+    {
+        System.out.println(name+" is changing Gear");
+    }
+    public void steer()
+    {
+        System.out.println(name+" is changing directions");
+    }
+    public void displayFeatures()
+    {
+        System.out.println("Features of "+name+" Car:");
+        System.out.println("Engine Capacity: "+engine_capacity);
+        System.out.println("Engine Power: "+power+"bhp");
+        System.out.println("Fuel Type: "+fuel_type);
+        System.out.println("No of Gears: "+no_gears);
+
+    }
+
+}
+
+public class CarDemo {
+    public static void main(String[] args) {
+        Car tiago=new Car("Tiago","Petrol",1200,84,5);
+        tiago.displayFeatures();
+        tiago.acceleration();
+        tiago.applyBreak();
+        tiago.changeGear();
+        tiago.steer();
+
+
+
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Constructor:
+------------
+
+public class Constructor {
+    private double length;
+    private double width;
+    private double height;
+    public Constructor()
+    {
+        System.out.println("Inside Default Constructor");
+    }
+    public Constructor(double length, double width, double height)
+    {
+        System.out.println("Inside Parameterized Constructor");
+        this.length=length;
+        this.width=width;
+        this.height=height;
+    }
+    public void display()
+    {
+        System.out.println("Length="+length);
+        System.out.println("Width="+width);
+        System.out.println("Height="+height);
+    }
+    public double getVolume()
+    {
+        return length*width*height;
+    }
+    public double getLength()
+    {
+        return length;
+    }
+    public double getWidth()
+    {
+        return width;
+    }
+    public double getHeight()
+    {
+        return height;
+    }
+    public void setLength(double length)
+    {
+        this.length=length;
+    }
+    public void setWidth(double width)
+    {
+        this.width=width;
+    }
+    public void setHeight(double height)
+    {
+        this.height=height;
+    }
+}
+
+public class ConstructorDemo {
+    public static void main(String[] args) {
+        double l,w,h;
+        Constructor b1=new Constructor();
+        Constructor b2=new Constructor(100,50,200);
+        System.out.println("Box values before Increase:");
+        b2.display();
+        System.out.println("Box Volume:"+b2.getVolume());
+        l=b2.getLength();
+        w=b2.getWidth();
+        h=b2.getHeight();
+        l=l+(l*10/100);
+        w=w+(w*20/100);
+        h=h+(h*8/100);
+        b2.setLength(l);
+        b2.setWidth(w);
+        b2.setHeight(h);
+        System.out.println("Box values after Increase:");
+        b2.display();
+        System.out.println("Box Volume:"+b2.getVolume());
+
+        b1.setLength(b1.getLength()+(b1.getLength()*10/100));
+
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Cars:
+-----
+
+public class Cars {
+        private String name;
+        private String fuel_type;
+        private int engine_capacity;
+        private float power;
+        private int no_gears;
+        private CarsTyre tyre;
+        private CarsMusicSystem ms;
+
+        public Cars(String name, String fuel_type, int engine_capacity, float power, int no_gears, CarsTyre tyre, CarsMusicSystem ms) {
+            this.name = name;
+            this.fuel_type = fuel_type;
+            this.engine_capacity = engine_capacity;
+            this.power = power;
+            this.no_gears = no_gears;
+            this.tyre=tyre;
+            this.ms=ms;
+        }
+
+        public String getName() { return name; }
+
+        public String getFuel_type() { return fuel_type; }
+
+        public int getEngine_capacity() { return engine_capacity; }
+
+        public float getPower() { return power; }
+
+        public int getNo_gears() { return no_gears; }
+
+        public void setName(String name) { this.name = name; }
+
+        public void setFuel_type(String fuel_type) { this.fuel_type = fuel_type; }
+
+        public void setEngine_capacity(int engine_capacity) { this.engine_capacity = engine_capacity; }
+
+        public void setPower(float power) { this.power = power; }
+
+        public void setNo_gears(int no_gears) { this.no_gears = no_gears; }
+        public void acceleration()
+        {
+            System.out.println(name+" is Accelerating");
+        }
+        public void applyBreak()
+        {
+            System.out.println(name+" is Slowing / Stopping");
+        }
+        public void changeGear(int g)
+        {
+            if(g<=no_gears) {
+                System.out.println(name + " is changing to " + g + " Gear");
+            }
+            else{
+                System.out.println("This "+name+" has only "+no_gears+" Gears");
+            }
+        }
+        public void steer()
+        {
+            System.out.println(name+" is changing directions");
+        }
+        public void displayFeatures()
+        {
+            System.out.println("\nFeatures of "+name+" Car:");
+            System.out.println("------------------------------");
+            System.out.println("Engine Capacity: "+engine_capacity);
+            System.out.println("Engine Power: "+power+"bhp");
+            System.out.println("Fuel Type: "+fuel_type);
+            System.out.println("No of Gears: "+no_gears);
+            System.out.println("Tyre Name: "+tyre.getTyreName()+" Tyre Size: "+tyre.getTyreSize()+" inches");
+            System.out.println("Music System Name: "+ms.getMusicSystemName());
+            System.out.println("LCD Screen Size: "+ms.getLcdScreenSize());
+            System.out.println("No of Speakers: "+ms.getNoOfSpeakers());
+            System.out.println("Subwoofers: "+ ms.isSubWoofer());
+
+        }
+        /* public void displayFeatures(String featureName)
+        {
+            if(featureName.equals("Tyre"))
+            {
+                System.out.println("Tyre Name: "+tyre.getTyreName()+", Tyre Size: "+tyre.getTyreSize()+"inch");
+            }
+        }
+       public void displayFeatures(String featureName)
+       {
+        if(featureName.equals("MusicSystem"))
+        {
+            System.out.println("Music System Name: "+ms.getMusicSystemName());
+            System.out.println("LCD Screen Size: "+ms.getLcdScreenSize());
+            System.out.println("No of Speakers: "+ms.getNoOfSpeakers());
+            System.out.println("Subwoofers: "+ ms.isSubWoofer());
+        }
+       }*/
+
+}
+
+import java.util.Scanner;
+
+public class CarsDemo {
+        public static void main(String[] args) {
+            int g;
+            CarsMusicSystem harman=new CarsMusicSystem("Harman",8,true,7);
+            CarsTyre bridgeStone=new CarsTyre("BridgeStone",14);
+            Cars tiago=new Cars("Tiago","Petrol",1200,84,5, bridgeStone, harman);
+            tiago.displayFeatures();
+             /* tiago.displayFeatures("Tyre");
+             tiago.displayFeatures("MusicSystem");*/
+            tiago.acceleration();
+            tiago.applyBreak();
+            System.out.println("Enter a Gear to change:");
+            Scanner n=new Scanner(System.in);
+            g=n.nextInt();
+            tiago.changeGear(g);
+            tiago.steer();
+
+            CarsMusicSystem jbl=new CarsMusicSystem("JBL",8,true,8);
+            CarsTyre apollo=new CarsTyre("Apollo",16);
+            Cars xuv=new Cars("XUV700","Petrol",1500,145,5, apollo, jbl);
+            xuv.displayFeatures();
+            xuv.acceleration();
+            xuv.applyBreak();
+            System.out.println("Enter a Gear to change:");
+            Scanner a=new Scanner(System.in);
+            g=a.nextInt();
+            xuv.changeGear(g);
+            xuv.steer();
+
+            CarsMusicSystem bose=new CarsMusicSystem("Bose",8,true,10);
+            CarsTyre mrf=new CarsTyre("MRF",16);
+            Cars hondaCity=new Cars("Honda City","Petrol",1300,120,5, mrf, bose);
+            hondaCity.displayFeatures();
+            hondaCity.acceleration();
+            hondaCity.applyBreak();
+            System.out.println("Enter a Gear to change:");
+            Scanner k=new Scanner(System.in);
+            g=k.nextInt();
+            hondaCity.changeGear(g);
+            hondaCity.steer();
+
+
+
+        }
+
+}
+
+public class CarsTyre {
+    private String tyreName;
+    private int tyreSize;
+
+    public CarsTyre(String tyreName, int tyreSize) {
+        this.tyreName = tyreName;
+        this.tyreSize = tyreSize;
+    }
+
+    public String getTyreName() {
+        return tyreName;
+    }
+
+    public int getTyreSize() {
+        return tyreSize;
+    }
+
+    public void setTyreName(String tyreName) {
+        this.tyreName = tyreName;
+    }
+
+    public void setTyreSize(int tyreSize) {
+        this.tyreSize = tyreSize;
+    }
+}
+
+
+public class CarsMusicSystem {
+    private String musicSystemName;
+    private int noOfSpeakers;
+    private boolean subWoofer;
+    private int lcdScreenSize;
+
+    public CarsMusicSystem(String musicSystemName, int noOfSpeakers, boolean subWoofer, int lcdScreenSize) {
+        this.musicSystemName=musicSystemName;
+        this.noOfSpeakers = noOfSpeakers;
+        this.subWoofer = subWoofer;
+        this.lcdScreenSize = lcdScreenSize;
+    }
+
+    public String getMusicSystemName() {
+        return musicSystemName;
+    }
+
+    public int getNoOfSpeakers() {
+        return noOfSpeakers;
+    }
+
+    public boolean isSubWoofer() {
+        return subWoofer;
+    }
+
+    public int getLcdScreenSize() {
+        return lcdScreenSize;
+    }
+
+    public void setMusicSystemName(String musicSystemName) {
+        this.musicSystemName = musicSystemName;
+    }
+
+    public void setNoOfSpeakers(int noOfSpeakers) {
+        this.noOfSpeakers = noOfSpeakers;
+    }
+
+    public void setSubWoofer(boolean subWoofer) {
+        this.subWoofer = subWoofer;
+    }
+
+    public void setLcdScreenSize(int lcdScreenSize) {
+        this.lcdScreenSize = lcdScreenSize;
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
