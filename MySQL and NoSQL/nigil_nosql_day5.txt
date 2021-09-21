@@ -1,0 +1,299 @@
+> db.Employee.find().limit(2)
+{ "_id" : ObjectId("61441bca522d9c33d9678ce4"), "name" : "Ram", "department" : "AE", "salary" : "50000" }
+{ "_id" : ObjectId("61441bca522d9c33d9678ce5"), "name" : "Sita", "department" : "JE", "salary" : "40000" }
+> db.Employee.find({"name":"Bhatra"}).limit(2)
+{ "_id" : ObjectId("614429c6522d9c33d9678ce8"), "name" : "Bhatra", "department" : "BA", "salary" : "55000" }
+> db.Employee.find({"name":"Bhatra"}).limit(1)
+{ "_id" : ObjectId("614429c6522d9c33d9678ce8"), "name" : "Bhatra", "department" : "BA", "salary" : "55000" }
+> db.Employee.find().limit(3)
+{ "_id" : ObjectId("61441bca522d9c33d9678ce4"), "name" : "Ram", "department" : "AE", "salary" : "50000" }
+{ "_id" : ObjectId("61441bca522d9c33d9678ce5"), "name" : "Sita", "department" : "JE", "salary" : "40000" }
+{ "_id" : ObjectId("61441bca522d9c33d9678ce6"), "name" : "Ganesh", "department" : "Analyst", "salary" : "45000" }
+
+
+> db.Employee.find().limit(2).pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce4"),
+        "name" : "Ram",
+        "department" : "AE",
+        "salary" : "50000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+
+
+> db.Employee.find({"salary":{$gt:"40000"}}).pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce4"),
+        "name" : "Ram",
+        "department" : "AE",
+        "salary" : "50000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+{
+        "_id" : ObjectId("614434c4522d9c33d9678cea"),
+        "name" : "Manikshaw",
+        "department" : "R&D",
+        "salary" : "60000"
+}
+> db.Employee.find({"salary":{$lt:"50000"}}).pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+> db.Employee.find({"salary":{$lte:"50000"}}).pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce4"),
+        "name" : "Ram",
+        "department" : "AE",
+        "salary" : "50000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+> db.Employee.find({"salary":{$gte:"40000"}}).pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce4"),
+        "name" : "Ram",
+        "department" : "AE",
+        "salary" : "50000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+{
+        "_id" : ObjectId("614434c4522d9c33d9678cea"),
+        "name" : "Manikshaw",
+        "department" : "R&D",
+        "salary" : "60000"
+}
+> db.Employee.find({"salary":{$ne:"50000"}}).pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+{
+        "_id" : ObjectId("614434c4522d9c33d9678cea"),
+        "name" : "Manikshaw",
+        "department" : "R&D",
+        "salary" : "60000"
+}
+
+
+> db.Employee.find().sort({"name":1}).limit(2).pretty()
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+
+> db.Employee.find().sort({"name":1}).limit(3).pretty()
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+
+
+> db.Employee.find().count()
+6
+
+
+> db.Employee.find()
+{ "_id" : ObjectId("61441bca522d9c33d9678ce4"), "name" : "Ram", "department" : "AE", "salary" : "50000" }
+{ "_id" : ObjectId("61441bca522d9c33d9678ce5"), "name" : "Sita", "department" : "JE", "salary" : "40000" }
+{ "_id" : ObjectId("61441bca522d9c33d9678ce6"), "name" : "Ganesh", "department" : "Analyst", "salary" : "45000" }
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{ "_id" : ObjectId("614429c6522d9c33d9678ce8"), "name" : "Bhatra", "department" : "BA", "salary" : "55000" }
+{ "_id" : ObjectId("614434c4522d9c33d9678cea"), "name" : "Manikshaw", "department" : "R&D", "salary" : "60000" }
+
+
+
+> db.Employee.update({"name":"Kumar"},{$set:{"salary":"60000"}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+
+
+> db.Employee.update({"name":"Kumar"},{"name":"Kumar","deparrtment":"QA","salary":"70000"})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+
+
+> db.Employee.find().pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce4"),
+        "name" : "Ram",
+        "department" : "AE",
+        "salary" : "50000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+{
+        "_id" : ObjectId("614434c4522d9c33d9678cea"),
+        "name" : "Manikshaw",
+        "department" : "R&D",
+        "salary" : "60000"
+}
+
+
+> db.Employee.count()
+6
+> db.Employee.find().count()
+6
+
+
+> db.Employee.upsert
+nig_dbs1.Employee.upsert
+
+> db.Employee.find().upsert
+
+
+> db.Employee.find({"name":"Kumar",upsert:true})
+
+
+> db.Employee.update({"name":"Kumar"},{"name":"Kumar","deparrtment":"QA","salary":"70000"},{upsert:true})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 1,
+        "nModified" : 0,
+        "_id" : ObjectId("61444161092355717637d7bd")
+})
+
+
+> db.Employee.find().pretty()
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce4"),
+        "name" : "Ram",
+        "department" : "AE",
+        "salary" : "50000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce5"),
+        "name" : "Sita",
+        "department" : "JE",
+        "salary" : "40000"
+}
+{
+        "_id" : ObjectId("61441bca522d9c33d9678ce6"),
+        "name" : "Ganesh",
+        "department" : "Analyst",
+        "salary" : "45000"
+}
+{ "_id" : ObjectId("614429c6522d9c33d9678ce7"), "salary" : "50000" }
+{
+        "_id" : ObjectId("614429c6522d9c33d9678ce8"),
+        "name" : "Bhatra",
+        "department" : "BA",
+        "salary" : "55000"
+}
+{
+        "_id" : ObjectId("614434c4522d9c33d9678cea"),
+        "name" : "Manikshaw",
+        "department" : "R&D",
+        "salary" : "60000"
+}
+{
+        "_id" : ObjectId("61444161092355717637d7bd"),
+        "name" : "Kumar",
+        "deparrtment" : "QA",
+        "salary" : "70000"
+}
+>
+
+
+
+
+
+
+
+
+
