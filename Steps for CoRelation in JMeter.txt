@@ -1,0 +1,73 @@
+[13:20] Ravi (Guest)
+1. complete recording
+
+2. check generate parent samples on all transactions
+
+3. go to threadgroup
+
+4. keep 1 user, 0 rampup, 1 loop count
+
+5. add viewresultstree/aggregatereport to the threadgroup
+
+6. replay script
+
+7. go to viewresultstree and check request of login request and see if j2ee and j2ee is going with request.
+
+8. go to response of login request - check for message "you have reached this page incorrectly"
+
+9. go to 3rd login request -> go to its response and check welcome message is there or not
+
+10. go to the login request from the script
+
+11. copy the name "userSession"
+
+12. go to replay resultsrtree
+
+13. select 1st laucnh request and select responsedata tab and response body under responsedata
+
+14. paste your usersessionname and click find -> you shouls see that search is failed.
+
+15. go to next subsequent requests and search for usersession name until you find a result.
+
+16.you should see usesession value is available in last "launch" request.
+
+17. copy the user session line (ex:  <input type="hidden" name="userSession" value="132468.184285136ziVDiDcpccQVzzzHtAiicpQQDDHf"/>)
+
+18. go to the text layout and select "Regularexpressiontester".
+
+19. paste you copied line in Regularexpressiontester and should see a result in below
+
+20. remove the only session value from the text line.
+
+21. add (.*?) in the text line -> <input type="hidden" name="userSession" value="(.*?)"/>
+
+22. click test button and you should see a results like " Match[1][1]=132468.184285136ziVDiDcpccQVzzzHtAiicpQQDDHf "
+
+23. copy the successful expression
+
+24. go to the last laucnh request from the script
+
+25. right click on launch request -> add-> post processor-> RegularexpressExtractor
+
+26. go to the regular expression text box and paste expression ( ex: "<input type="hidden" name="userSession" value="(.*?)"/>")
+
+27. enter name of created variable as " TOKID"
+
+28. Template as $1$
+
+29. enter match no as 1
+
+30. enter default value as TokID_NOTFOUND
+
+31. go to the 1st login request
+
+32. remove the user session value
+
+33. and replace with ${​​​​​TokID}​​​​​
+
+34. save your script
+
+35. replay
+
+36. chek the response of login requests from viewresultstree.
+
