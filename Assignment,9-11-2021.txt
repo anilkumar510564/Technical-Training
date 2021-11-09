@@ -1,0 +1,159 @@
+package com.torryharris.driver;
+
+import com.torryharris.model.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        //PrimeNumber pn=new PrimeNumber();
+        //pn.primeNo();
+        //Factorial fct=new Factorial();
+        //fct.fact();
+        //Fibonacci fb=new Fibonacci();
+        //fb.fibonacci();
+        //DecimalToBinary db=new DecimalToBinary();
+        //db.decToBin();
+        BinaryToDecimal bd=new BinaryToDecimal();
+        bd.binToDec();
+    }
+}
+
+
+package com.torryharris.model;
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+    public void primeNo()
+    {
+        int n,m,sum=0,flag=0;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter value for n:");
+        n=sc.nextInt();
+        System.out.println("Enter value for m:");
+        m=sc.nextInt();
+        for(int i=n; i<=m; i++)
+        {
+            flag=0;
+            for(int j=2;j<=i/2;j++)
+            {
+                if(i%j == 0)
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0 && i!=1)
+            {
+                System.out.println(i);
+                sum=sum+i;
+            }
+        }
+        System.out.println("Sum of Prime numbers between "+n+" and "+m+": "+sum);
+    }
+}
+
+package com.torryharris.model;
+
+import java.util.Scanner;
+
+public class Factorial {
+    public void fact()
+    {
+        int n,f=1;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter value for n:");
+        n=sc.nextInt();
+        if(n==0)
+        {
+            System.out.println("Factorial of "+n+" is:1");
+        }
+        else{
+            for(int i=n;i>=1;i--)
+            {
+                f=f*i;
+            }
+        }
+        System.out.println("Factorial of "+n+" is:"+f);
+    }
+}
+
+package com.torryharris.model;
+
+import java.util.Scanner;
+
+public class Fibonacci {
+    public void fibonacci()
+    {
+        int n;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter value for n:");
+        n=sc.nextInt();
+        System.out.println(isFib(n) ? n+" is a Fibonacci Number": n+" is not a Fibonacci Number");
+
+    }
+    boolean isFib(int i)
+    {
+        return perfectSqr(5*i*i + 4) || perfectSqr(5*i*i - 4);
+    }
+    boolean perfectSqr(int j)
+    {
+        int x=(int) Math.sqrt(j);
+        return (x*x == j);
+    }
+}
+
+
+package com.torryharris.model;
+
+import java.util.Scanner;
+
+public class DecimalToBinary {
+    public void decToBin()
+    {
+        int n, bin[]=new int[40],ind=0;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter value for n:");
+        n=sc.nextInt();
+        while(n>0)
+        {
+            bin[ind++]=n%2;
+            n=n/2;
+        }
+        for(int i=ind-1;i>=0;i--)
+        {
+            System.out.print(bin[i]);
+        }
+    }
+}
+
+
+package com.torryharris.model;
+
+import java.util.Scanner;
+
+public class BinaryToDecimal {
+    public void binToDec()
+    {
+        int dec=0;
+        int n=0;
+        int num;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter value for num:");
+        num=sc.nextInt();
+        while(true)
+        {
+            if(num==0)
+            {
+                break;
+            }
+            else{
+                int temp=num%10;
+                dec+=temp*Math.pow(2,n);
+                num=num/10;
+                n++;
+            }
+        }
+        System.out.println("Decimal is:"+dec);
+    }
+}
